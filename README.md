@@ -124,26 +124,6 @@ Response
 } 
 
 ```
-#### Save Customer Information :  
-Link : yoursite.com/app/savecustomer 
-
-```
-Request Body : 
-{ 
- "token":"app963", 
- "fname" : "Bhinderjit", 
- "lname" : "Singh", 
- "mobile" : "7307258973", 
- "area" : "Rayya", 
- "address" : "lohgarh" 
-} 
-Response 
-{ 
-    "success": { 
-        "text": "Saved Sucessfully" 
-    } 
-}
-```
 #### Get Homepage Products :  
 Link : yoursite.com/app/homepage 
 
@@ -181,28 +161,25 @@ Link : yoursite.com/app/placeorder
 
 ```
 Request Body : 
-{ 
- "token":"app963", 
- "fname":"bhinderjit", 
- "lname":"Singh", 
- "mobile":"9915248596", 
- "area":"Rayya", 
- "address":"Lohgarh", 
- "orderitems":[ 
-  { 
-   "itemname":"Apple", 
-   "itemquantity":"6", 
-   "itemprice":"50", 
-   "itemtotal":"300" 
-  }, 
-  { 
-   "itemname":"Lichi", 
-   "itemquantity":"1", 
-   "itemprice":"40", 
-   "itemtotal":"40" 
-  } 
-  ] 
-} 
+{
+	"lname": "Randhawa",
+	"mobile": "7696355852",
+	"token": "app963",
+	"address": "Near FCI Godown, Batth Road, Opp.Kotak Mahindra Bnak, Pandori Gola",
+	"area": "Aman Nagar",
+	"fname": "Ajaypal",
+	"items" : 
+	[
+		{
+			"itemid": "6",
+			"itemname": "Kivy",
+			"itemprice": "220",
+			"itemquantity": "1",
+			"itemquantitytype": "Kg",
+			"itemtotal": "30"
+		}
+	]
+}
  
 Response 
 { 
