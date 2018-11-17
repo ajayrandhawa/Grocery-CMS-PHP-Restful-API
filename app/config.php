@@ -4,11 +4,11 @@ error_reporting(0);
 session_start();
 
 /* DATABASE CONFIGURATION */
-define('DB_SERVER', 'fdb16.eohost.com');
-define('DB_USERNAME', '2450783_healthy');
-define('DB_PASSWORD', '963852asd');
-define('DB_DATABASE', '2450783_healthy');
-define("BASE_URL", "http://yoursite.com/app/");
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'myuser');
+define('DB_PASSWORD', '123456789');
+define('DB_DATABASE', 'kitchen');
+define("BASE_URL", "http://localhost:86/kitchen/app/");
 define("SITE_KEY", 'yourSecretKey');
 
 
@@ -28,9 +28,6 @@ function getDB()
 /* API key encryption */
 function apiToken()
 {
-return 'app963';
+	return "app963";
 }
-
-
-
 ?>

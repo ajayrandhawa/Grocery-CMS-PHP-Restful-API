@@ -6,21 +6,15 @@ if(strlen($_SESSION['alogin'])==0)
 {	
 header('location:index.php');
 }
-else{ 
-if(isset($_GET['edititem']))
+else{
+if(isset($_GET['del']))
 {
-$itemid=$_GET['edititem'];
-}
-if(isset($_POST['submit']))
-{
-$itemprice=$_POST['itemprice'];
-$sql="UPDATE items SET price=(:itemprice) WHERE id=(:editid)";
+$id=$_GET['del'];
+$sql = "delete from message WHERE id=:id";
 $query = $dbh->prepare($sql);
-$query->bindParam(':itemprice',$itemprice,PDO::PARAM_STR);
-$query->bindParam(':editid',$itemid,PDO::PARAM_STR);
-$query->execute();
-$lastInsertId = $dbh->lastInsertId();
-$msg="Price Updated successfully";
+$query -> bindParam(':id',$id, PDO::PARAM_STR);
+$query -> execute();
+$msg="Data Deleted successfully";
 }
 ?>
 <!doctype html>
@@ -32,7 +26,7 @@ $msg="Price Updated successfully";
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="theme-color" content="#3e454c">
-    <title>Update Items
+    <title>Messages
     </title>
     <!-- Font awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -50,8 +44,6 @@ $msg="Price Updated successfully";
     <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
     <!-- Admin Stye -->
     <link rel="stylesheet" href="css/style.css">
-    <script type= "text/javascript" src="../vendor/countries.js">
-    </script>
     <style>
       .errorWrap {
         padding: 10px;
@@ -75,62 +67,74 @@ $msg="Price Updated successfully";
     <?php include('includes/header.php');?>
     <div class="ts-main-content">
       <?php include('includes/leftbar.php');?>
-      <?php $sqltemp = "SELECT * from items where id = (:id)";
-$querytemp = $dbh -> prepare($sqltemp);
-$querytemp->bindParam(':id',$itemid,PDO::PARAM_STR);
-$querytemp->execute();
-$resulttemp=$querytemp->fetch(PDO::FETCH_OBJ);         
-?>
       <div class="content-wrapper">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="page-title">
-                <a href="manage-items.php">
-                  <i class="glyphicon glyphicon-circle-arrow-left" style="color:#3b3b3b">
-                  </i>
-                </a>&nbsp; &nbsp; Update Price
+              <h2 class="page-title">Messages
               </h2>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">Basic Info
-                    </div>
-                    <?php if($error){?>
-                    <div class="errorWrap">
-                      <?php echo htmlentities($error); ?> 
-                    </div>
-                    <?php } 
-else if($msg){?>
-                    <div class="succWrap">
-                      <?php echo htmlentities($msg); ?> 
-                    </div>
-                    <?php }?>
-                    <div class="panel-body">
-                      <form method="post" class="form-horizontal">
-                        <div class="form-group">
-                          <label class="col-sm-2 control-label">Name
-                          </label>
-                          <div class="col-sm-4">
-                            <input class="form-control" required readonly value="<?php echo htmlentities($resulttemp->name); ?>">
-                          </div>
-                          <label class="col-sm-2 control-label">Price
-                            <span style="color:red">* 
-                            </span>(Rs)
-                          </label>
-                          <div class="col-sm-4">
-                            <input type="number" name="itemprice" class="form-control" required placeholder="Per kg or piece" value="<?php echo htmlentities($resulttemp->price); ?>">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="col-sm-8 col-sm-offset-2">
-                            <button class="btn btn-primary" name="submit" type="submit">Update Changes
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+              <!-- Zero Configuration Table -->
+              <div class="panel panel-default">
+                <div class="panel-heading">List Messages
+                </div>
+                <div class="panel-body">
+                  <?php if($error){?>
+                  <div class="errorWrap" id="msgshow">
+                    <?php echo htmlentities($error); ?> 
                   </div>
+                  <?php } 
+else if($msg){?>
+                  <div class="succWrap" id="msgshow">
+                    <?php echo htmlentities($msg); ?> 
+                  </div>
+                  <?php }?>
+                  <table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>#
+                        </th>
+                        <th>Name
+                        </th>
+                        <th>Mobile Number
+                        </th>
+                        <th>Messages
+                        </th>
+                        <th>Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $sql = "SELECT * from  message ORDER BY id DESC";
+                        $query = $dbh -> prepare($sql);
+                        $query->execute();
+                        $results=$query->fetchAll(PDO::FETCH_OBJ);
+                        $cnt=1;
+                        if($query->rowCount() > 0)
+                        {
+                        foreach($results as $result)
+                        {				?>	
+                      <tr>
+                        <td>
+                          <?php echo htmlentities($cnt);?>
+                        </td>
+                        <td>
+                          <?php echo htmlentities($result->cname);?> 
+                        </td>
+                        <td>
+                          <?php echo htmlentities($result->cmobile);?>
+                        </td>
+                        <td>
+                          <?php echo htmlentities($result->cmsg);?>
+                        </td>
+                        <td>
+                          <a href="message.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you want to delete');">
+                            <i class="fa fa-trash" style="color:red">
+                            </i></a>
+                        </td>
+                      </tr>
+                      <?php $cnt=$cnt+1; }} ?>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

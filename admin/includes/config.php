@@ -3,7 +3,7 @@
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
-define('DB_NAME','healthykitchen');
+define('DB_NAME','kitchen');
 // Establish database connection.
 try
 {
