@@ -12,6 +12,7 @@ Healthy Kitchen CMS PHP Restful API is an online grocery shop. The project is de
 - Generate Bills
 - Notifications
 - Check Order Status
+- Search Products
 - Manage Customers
 - App Token Authentication
 
