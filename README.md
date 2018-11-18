@@ -249,5 +249,32 @@ Response
 }
 ```
 
+#### Check Order Status :  
+Link : yoursite.com/app/fetchorder 
+
+```
+Request Body : 
+{
+	"token":"app963",
+	"mobileno":"7307258973"
+}
+
+Response 
+{
+    "OrderData": [
+        {
+            "orderid": "20",
+            "fname": "Ramesh",
+            "lname": "Kumar",
+            "mobile": "7307258973",
+            "area": "Mushrooms",
+            "address": "Pandori",
+            "status": "Received",
+            "ordertime": "2018-11-18 21:58:45"
+        }
+    ]
+}
+```
+
 ### Happy Coding...
 ### Happy Open Source..
