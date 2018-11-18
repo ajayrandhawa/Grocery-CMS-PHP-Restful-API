@@ -228,5 +228,26 @@ Response
 }
 ```
 
+#### Notification :  
+Link : yoursite.com/app/searchproduct 
+
+```
+Request Body : 
+{
+	"token":"app963"
+}
+
+Response 
+{
+    "NotiData": [
+        {
+            "id": "2",
+            "title": "10% off on Flat",
+            "description": "10% off on Flat Price of Masala"
+        }
+    ]
+}
+```
+
 ### Happy Coding...
 ### Happy Open Source..
