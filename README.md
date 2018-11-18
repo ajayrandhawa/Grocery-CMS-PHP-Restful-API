@@ -57,36 +57,118 @@ define("SITE_KEY", 'yourSecretKey');
 
 ### App API Requests
 
-#### Get all Category :  
-Link : yoursite.com/app/allcategory 
+#### Get Homepage Products :  
+Link : yoursite.com/app/homepage 
 
 ```
-Request Body :
+Request Body : 
 { 
  "token":"app963" 
 } 
-
-Response: 
-{ 
-    "feedData": [ 
-        { 
-            "id": "9", 
-            "categry": "Fruits" 
-        }, 
-        { 
-            "id": "10", 
-            "categry": "Juice" 
-        }, 
-        { 
-            "id": "11", 
-            "categry": "Vegetables" 
-        }, 
-        { 
-            "id": "12", 
-            "categry": "Salad" 
-        } 
-    ] 
-} 
+Response 
+{
+    "HomeData": [
+        {
+            "id": "10",
+            "name": "Strawberry",
+            "category": "Fruits",
+            "description": "The garden strawberry is a widely grown hybrid species of the genus Fragaria,",
+            "price": "99",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "strwberry.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "9",
+            "name": "Pineapple",
+            "category": "Fruits",
+            "description": "The pineapple is a tropical plant with an edible multiple fruit consisting of coalesced berries",
+            "price": "30",
+            "quantity": "1",
+            "quantitytype": "Unit",
+            "image": "pineapple.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "8",
+            "name": "Grapes",
+            "category": "Fruits",
+            "description": "A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.",
+            "price": "60",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "grapes.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "7",
+            "name": "Orange",
+            "category": "Fruits",
+            "description": "The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.",
+            "price": "45",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "orange.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "6",
+            "name": "Kivy",
+            "category": "Fruits",
+            "description": "Martha Stewart is of the view that the fruit can be consumed in its entirety.",
+            "price": "220",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "kivy.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "5",
+            "name": "Bananas",
+            "category": "Fruits",
+            "description": "A wide variety of health benefits are associated with the curvy yellow fruit.",
+            "price": "65",
+            "quantity": "1",
+            "quantitytype": "Dozon",
+            "image": "bananas.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "4",
+            "name": "Apple",
+            "category": "Fruits",
+            "description": "Apples are loaded with vitamin C.",
+            "price": "100",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "apple.png",
+            "homepage": "YES"
+        }
+    ],
+    "CateData": [
+        {
+            "id": "9",
+            "categry": "Fruits",
+            "cateimg": "fruits.png"
+        },
+        {
+            "id": "10",
+            "categry": "Juice",
+            "cateimg": "juice.png"
+        },
+        {
+            "id": "11",
+            "categry": "Vegetables",
+            "cateimg": "vegetables.png"
+        },
+        {
+            "id": "12",
+            "categry": "Oils",
+            "cateimg": "oils.png"
+        }
+    ]
+}} 
 ```
 #### Get Items Click on Category :  
 
@@ -124,38 +206,7 @@ Response
 } 
 
 ```
-#### Get Homepage Products :  
-Link : yoursite.com/app/homepage 
 
-```
-Request Body : 
-{ 
- "token":"app963" 
-} 
-Response 
-{ 
-    "feedData": [ 
-        { 
-            "id": "2", 
-            "name": "Kiwi", 
-            "category": "Fruits", 
-            "description": "no des", 
-            "price": "630", 
-            "image": "3.png", 
-            "homepage": "YES" 
-        }, 
-        { 
-            "id": "3", 
-            "name": "Apple", 
-            "category": "Fruits", 
-            "description": "No Des", 
-            "price": "110", 
-            "image": "2.png", 
-            "homepage": "YES" 
-        } 
-    ] 
-} 
-```
 #### Place Order :  
 Link : yoursite.com/app/placeorder 
 
