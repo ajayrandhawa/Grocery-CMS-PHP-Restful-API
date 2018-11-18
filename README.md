@@ -189,5 +189,44 @@ Response
 } 
 ```
 
+#### Search Product :  
+Link : yoursite.com/app/searchproduct 
+
+```
+Request Body : 
+{
+	"token":"app963",
+	"searchquery":"Apple"
+}
+
+Response 
+{
+    "SearchData": [
+        {
+            "id": "4",
+            "name": "Apple",
+            "category": "Fruits",
+            "description": "lorem",
+            "price": "100",
+            "quantity": "1",
+            "quantitytype": "Kg",
+            "image": "apple.png",
+            "homepage": "YES"
+        },
+        {
+            "id": "9",
+            "name": "Pineapple",
+            "category": "Fruits",
+            "description": "Lorem",
+            "price": "30",
+            "quantity": "1",
+            "quantitytype": "Unit",
+            "image": "pineapple.png",
+            "homepage": "YES"
+        }
+    ]
+}
+```
+
 ### Happy Coding...
 ### Happy Open Source..
