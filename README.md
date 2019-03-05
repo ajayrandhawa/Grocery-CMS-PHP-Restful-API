@@ -4,7 +4,7 @@ Grocery CMS PHP Restful API is an online grocery shop. The project is developed 
 
 <img src="Preview.png">
 
-<img src="view2.gif">
+<img src="view.gif">
 
 
 ### Features
