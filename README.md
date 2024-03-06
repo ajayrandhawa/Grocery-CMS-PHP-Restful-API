@@ -24,6 +24,11 @@ Grocery CMS PHP Restful API is an online grocery shop. The project is developed 
 - Contact Us
 - App Token Authentication
 
+#### Credentails
+
+Username : admin
+Password : 963852741
+
 | Screenshot | Screenshot |
 | --------------------- | -------------------- |
 | <img src="/sc/1.PNG"> | <img src="/sc/2.PNG"> |
